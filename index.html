@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://media.base44.com/images/public/69ebad1722e0988823a1d623/a8de401bf_logo.png" rel="icon" type="image/svg+xml"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="/manifest.json" rel="manifest"/>
+  <title>
+   Orbital Reserve
+  </title>
+  <script crossorigin="" src="/assets/index-3cFQ83Rr.js" type="module">
+  </script>
+  <link crossorigin="" href="/assets/index-CDF-oHHR.css" rel="stylesheet"/>
+  <script type="module">
+   if (window.self === window.top) {
+  let lastPath = "";
+  function getPageNameFromPath(path) {
+    const segments = path.split("/").filter(Boolean);
+    return segments[0] || null;
+  }
+  function trackPageView() {
+    const path = window.location.pathname;
+    if (path === lastPath) return;
+    lastPath = path;
+    const pageName = getPageNameFromPath(path) || "home";
+    const appId = "69ebad1722e0988823a1d623";
+    if (!appId) return;
+    fetch(`/app-logs/${appId}/log-user-in-app/${pageName}`, {
+      method: "POST",
+    }).catch(() => {});
+  }
+  const originalPushState = history.pushState.bind(history);
+  history.pushState = function (...args) {
+    originalPushState(...args);
+    trackPageView();
+  };
+  const originalReplaceState = history.replaceState.bind(history);
+  history.replaceState = function (...args) {
+    originalReplaceState(...args);
+    trackPageView();
+  };
+  window.addEventListener("popstate", trackPageView);
+  trackPageView();
+}
+  </script>
+  <meta content="The world’s premier gateway for high-value celestial real estate and orbital habitat acquisitions, designed for those seeking the ultimate perspective on humanity." name="description"/>
+  <meta content="Orbital Reserve" property="og:title"/>
+  <meta content="The world’s premier gateway for high-value celestial real estate and orbital habitat acquisitions, designed for those seeking the ultimate perspective on humanity." property="og:description"/>
+  <meta content="https://media.base44.com/images/public/69ebad1722e0988823a1d623/a8de401bf_logo.png/v1/fill/w_1200,h_630/a8de401bf_logo.png" property="og:image"/>
+  <meta content="https://orbit-reserve-prime.base44.app" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Orbital Reserve" property="og:site_name"/>
+  <meta content="Orbital Reserve" name="twitter:title"/>
+  <meta content="The world’s premier gateway for high-value celestial real estate and orbital habitat acquisitions, designed for those seeking the ultimate perspective on humanity." name="twitter:description"/>
+  <meta content="https://media.base44.com/images/public/69ebad1722e0988823a1d623/a8de401bf_logo.png/v1/fill/w_1200,h_630/a8de401bf_logo.png" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://orbit-reserve-prime.base44.app" name="twitter:url"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Orbital Reserve" name="apple-mobile-web-app-title"/>
+  <link href="https://orbit-reserve-prime.base44.app" rel="canonical"/>
+  <script async="true" data-app-id="69ebad1722e0988823a1d623" data-platform-url="https://app.base44.com" src="/static/js/badge.js">
+  </script>
+ </head>
+ <body>
+  <div id="root">
+  </div>
+ </body>
+</html>
