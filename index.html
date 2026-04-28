@@ -69,18 +69,10 @@
       transform: scale(1.05);
     }
     .logo-img {
-      height: 45px;
+      height: 50px;
       width: auto;
       object-fit: contain;
     }
-    .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.1;
-    }
-    .logo-text span { color: var(--accent); }
     .menu {
       display: flex;
       list-style: none;
@@ -572,15 +564,21 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
     .footer-logo-img {
-      height: 40px;
+      height: 45px;
       width: auto;
       object-fit: contain;
     }
+    .footer-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
     .footer-logo-text {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: 16px;
       font-weight: 800;
       color: #fff;
       margin: 0;
@@ -709,7 +707,6 @@
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
       <a class="logo" href="#" aria-label="Eminot Lifesciences home">
         <img src="logo.png" alt="Eminot Lifesciences Logo" class="logo-img" />
-        <div class="logo-text">Eminot <span>Life</span>sciences</div>
       </a>
       <ul class="menu">
         <li><a href="#">Home</a></li>
@@ -1100,11 +1097,12 @@
       <div>
         <div class="footer-content">
           <img src="logo.png" alt="Eminot Lifesciences Logo" class="footer-logo-img" />
-          <div>
+          <div class="footer-text">
             <p class="footer-logo-text">Eminot <span>Life</span>sciences</p>
+            <p style="font-size: 12px; margin-top: 4px;">Your trusted partner for scientific excellence.</p>
           </div>
         </div>
-        <p>Your trusted partner for world-class scientific laboratory products and solutions. Serving research institutions and biotech companies across India.</p>
+        <p style="margin-top: 12px;">Serving research institutions and biotech companies across India with world-class laboratory products and solutions.</p>
       </div>
       
       <div>
