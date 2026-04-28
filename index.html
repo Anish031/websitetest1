@@ -62,7 +62,16 @@
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      gap: 10px;
+      gap: 12px;
+      transition: transform .2s;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
     }
     .logo-text {
       font-family: 'Playfair Display', serif;
@@ -559,12 +568,22 @@
       grid-template-columns: 2fr 1fr 1fr 1.2fr;
       padding: 44px 0 32px;
     }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
     .footer-logo-text {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 12px;
+      margin: 0;
       display: block;
     }
     .footer-logo-text span { color: var(--accent); }
@@ -689,6 +708,7 @@
   <nav class="navbar">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
       <a class="logo" href="#" aria-label="Eminot Lifesciences home">
+        <img src="logo.png" alt="Eminot Lifesciences Logo" class="logo-img" />
         <div class="logo-text">Eminot <span>Life</span>sciences</div>
       </a>
       <ul class="menu">
@@ -1002,6 +1022,13 @@
         <h3>Get In Touch</h3>
         <div class="contact-list">
           <article>
+            <div class="icon">📍</div>
+            <div>
+              <p class="label">Address</p>
+              <p>Bengaluru, Karnataka, India</p>
+            </div>
+          </article>
+          <article>
             <div class="icon">📞</div>
             <div>
               <p class="label">Phone</p>
@@ -1009,133 +1036,159 @@
             </div>
           </article>
           <article>
-            <div class="icon">✉️</div>
+            <div class="icon">✉</div>
             <div>
               <p class="label">Email</p>
-              <a href="mailto:sales@eminotlifesciences.com">sales@eminotlifesciences.com</a><br/>
-              <a href="mailto:Prabhakaran@eminotlifesciences.com" style="margin-top:4px;display:block">Prabhakaran@eminotlifesciences.com</a>
+              <a href="mailto:sales@eminotlifesciences.com">sales@eminotlifesciences.com</a>
             </div>
           </article>
           <article>
-            <div class="icon">📍</div>
+            <div class="icon">💼</div>
             <div>
-              <p class="label">Location</p>
-              <p>No.494, 5th Main, Kengeri Satellite Town, Bangalore – 560060</p>
-            </div>
-          </article>
-          <article>
-            <div class="icon">🕒</div>
-            <div>
-              <p class="label">Business Hours</p>
-              <p>Mon – Sat: 9:00 AM – 6:00 PM</p>
+              <p class="label">Director</p>
+              <p><strong>Prabhakaran S</strong></p>
             </div>
           </article>
         </div>
-
         <div class="founder-box">
-          <h4>About Our Founder</h4>
-          <p>Eminot Lifesciences was founded by <strong>Prabhakaran S</strong>, who brings over 15 years of expertise in the life sciences domain. His deep industry knowledge drives our commitment to quality and customer satisfaction.</p>
+          <h4>Business Hours</h4>
+          <p>Monday to Friday: 9:00 AM - 6:00 PM IST<br>Saturday: 10:00 AM - 2:00 PM IST<br>Sunday & Holidays: Closed</p>
         </div>
       </div>
 
-      <div>
-        <form class="contact-form" id="contactForm">
-          <h3>Send Us a Message</h3>
-          <div id="formAlert" class="alert is-hidden" role="alert">
-            <p class="alert-title">✅ Message Sent!</p>
-            <div class="alert-description"><p>Thank you for reaching out. Our team will get back to you within 24 hours.</p></div>
-          </div>
-          <label>Full Name<input type="text" placeholder="Your Name" required /></label>
-          <label>Email Address<input type="email" placeholder="your@email.com" required /></label>
-          <label>Phone Number<input type="tel" placeholder="+91 XXXXX XXXXX" required /></label>
-          <label>Message<textarea rows="5" placeholder="Tell us about your requirements..." required></textarea></label>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </div>
+      <form class="contact-form" id="contactForm">
+        <h3>Send Message</h3>
+        <p style="color:#5f738d;margin:0 0 16px">We'll get back to you within 24 hours.</p>
+        
+        <label>
+          Full Name
+          <input type="text" name="name" required placeholder="Your full name" />
+        </label>
+        
+        <label>
+          Email Address
+          <input type="email" name="email" required placeholder="your@email.com" />
+        </label>
+        
+        <label>
+          Phone Number
+          <input type="tel" name="phone" placeholder="+91 XXXXXXXXXX" />
+        </label>
+        
+        <label>
+          Subject
+          <input type="text" name="subject" required placeholder="How can we help?" />
+        </label>
+        
+        <label>
+          Message
+          <textarea name="message" rows="5" required placeholder="Tell us more..."></textarea>
+        </label>
+        
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <div id="formAlert" class="alert is-hidden">
+          <div class="alert-title">Success!</div>
+          <div class="alert-description"><p>Thank you for reaching out. We'll get back to you soon.</p></div>
+        </div>
+      </form>
     </div>
   </section>
-
-  <dialog id="submitDialog" class="alert-dialog">
-    <div class="alert-content">
-      <h3>✅ Message Sent!</h3>
-      <p>Thank you for reaching out to Eminot Lifesciences. Our team will get back to you within 24 hours.</p>
-      <div class="alert-actions">
-        <button type="button" class="alert-cancel" id="dialogClose">Close</button>
-      </div>
-    </div>
-  </dialog>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <span class="footer-logo-text">Eminot <span>Life</span>sciences</span>
-        <p>Your trusted partner in scientific innovation and excellence. Serving Karnataka and beyond since 2023.</p>
+        <div class="footer-content">
+          <img src="logo.png" alt="Eminot Lifesciences Logo" class="footer-logo-img" />
+          <div>
+            <p class="footer-logo-text">Eminot <span>Life</span>sciences</p>
+          </div>
+        </div>
+        <p>Your trusted partner for world-class scientific laboratory products and solutions. Serving research institutions and biotech companies across India.</p>
       </div>
+      
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#" style="color:inherit;text-decoration:none">Home</a></li>
-          <li><a href="#about" style="color:inherit;text-decoration:none">About Us</a></li>
-          <li><a href="#products" style="color:inherit;text-decoration:none">Products</a></li>
-          <li><a href="#services" style="color:inherit;text-decoration:none">Services</a></li>
-          <li><a href="#contact" style="color:inherit;text-decoration:none">Contact Us</a></li>
+          <li><a href="#about" style="color:#8aadce;text-decoration:none">About Us</a></li>
+          <li><a href="#products" style="color:#8aadce;text-decoration:none">Products</a></li>
+          <li><a href="#services" style="color:#8aadce;text-decoration:none">Services</a></li>
+          <li><a href="#principals" style="color:#8aadce;text-decoration:none">Principals</a></li>
         </ul>
       </div>
+      
       <div>
-        <h4>Products</h4>
+        <h4>Support</h4>
         <ul>
-          <li>Life Sciences Consumables</li>
-          <li>Plastic Consumables</li>
-          <li>Instruments</li>
-          <li>Custom Services</li>
+          <li><a href="mailto:sales@eminotlifesciences.com" style="color:#8aadce;text-decoration:none">Contact Us</a></li>
+          <li><a href="#" style="color:#8aadce;text-decoration:none">FAQ</a></li>
+          <li><a href="#" style="color:#8aadce;text-decoration:none">Privacy Policy</a></li>
+          <li><a href="#" style="color:#8aadce;text-decoration:none">Terms of Service</a></li>
         </ul>
       </div>
+      
       <div>
-        <h4>Contact</h4>
+        <h4>Contact Info</h4>
         <ul>
-          <li>No.494, 5th Main,</li>
-          <li>Kengeri Satellite Town,</li>
-          <li>Bangalore – 560060</li>
-          <li style="margin-top:8px">sales@eminotlifesciences.com</li>
-          <li>+91 9620559413</li>
+          <li>📞 +91 9620559413</li>
+          <li>📧 sales@eminotlifesciences.com</li>
+          <li>📍 Bengaluru, India</li>
+          <li style="margin-top:12px;padding-top:12px;border-top:1px solid #1d4575">© 2023-2026 Eminot Lifesciences</li>
         </ul>
       </div>
     </div>
-    <div class="copyright">
-      <div class="container copyright-inner">
-        <span>© 2026 Eminot Lifesciences. All rights reserved.</span>
-        <span>Founded by Prabhakaran S | Est. 2023 | Serving Karnataka & Beyond</span>
+    
+    <div class="container copyright">
+      <div class="copyright-inner">
+        <div>© 2023-2026 Eminot Lifesciences. All rights reserved.</div>
+        <div>Designed with ❤️ for Scientific Excellence</div>
       </div>
     </div>
   </footer>
 
   <script>
-    const contactForm = document.getElementById('contactForm');
-    const submitDialog = document.getElementById('submitDialog');
-    const dialogClose = document.getElementById('dialogClose');
+    // Dark Mode Toggle
     const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      themeToggle.textContent = '☀️';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isNowDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isNowDark);
+      themeToggle.textContent = isNowDark ? '☀️' : '🌙';
+    });
 
-    if (contactForm && submitDialog) {
-      contactForm.addEventListener('submit', function (e) {
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formAlert = document.getElementById('formAlert');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        submitDialog.showModal();
+        
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+
+        // Log form data (In production, send to backend)
+        console.log('Form submitted:', data);
+
+        // Show success message
+        formAlert.classList.remove('is-hidden');
         contactForm.reset();
-        const formAlert = document.getElementById('formAlert');
-        if (formAlert) formAlert.classList.remove('is-hidden');
-      });
-    }
 
-    if (dialogClose && submitDialog) {
-      dialogClose.addEventListener('click', function () { submitDialog.close(); });
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
-        themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formAlert.classList.add('is-hidden');
+        }, 5000);
       });
     }
   </script>
+
 </body>
 </html>
